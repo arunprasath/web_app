@@ -40,4 +40,8 @@ ActionController::Routing::Routes.draw do |map|
   # consider removing or commenting them out if you're using named routes and resources.
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
+  
+  map.root :controller => 'dashboard', :action => 'show'
+  map.resources :product, :active_scaffold => true
+  map.resources :customer, :active_scaffold => true
 end
