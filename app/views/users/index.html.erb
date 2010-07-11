@@ -1,0 +1,9 @@
+<h1>Register New User</h1>
+
+<% @users.each do |user|%>
+  <b><%= user.login %></b><br />
+  <%= user.address %><br />
+  <%= user.city %><br />
+  <%= link_to "Edit", edit_user_path(user) %> | <%= link_to "Destroy", :method => :delete %><br /><br />
+
+<% end %>

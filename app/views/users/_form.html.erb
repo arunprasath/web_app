@@ -1,0 +1,24 @@
+<%= form.label :login %><br />
+<%= form.text_field :login %><br />
+<br />
+<%= form.label :password, form.object.new_record? ? nil : "Change password" %><br />
+<%= form.password_field :password %><br />
+<br />
+<%= form.label :password_confirmation %><br />
+<%= form.password_field :password_confirmation %><br />
+<br />
+<%= form.label :role %><br />
+<%= form.select :role, options_for_select(User::Role.map {|role| [role,role]}) %><br /><br />
+<br />
+<%= form.label :address %><br />
+<%= form.text_field :address %><br />
+<br />
+<%= form.label :city %><br />
+<%= form.text_field :city %><br />
+<br />
+<%= form.label :pincode %><br />
+<%= form.text_field :pincode %><br />
+<br />
+<%= form.label :phone_no %><br />
+<%= form.text_field :phone_no %><br />
+<br />

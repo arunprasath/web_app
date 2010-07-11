@@ -12,7 +12,17 @@
   </head>
   <body>
     <div class='container'>
-      <%= yield %>
+      <div id="user_nav">
+	<% if current_user %>
+	  <%= link_to "Edit Profile", edit_user_url(current_user) %> |
+	  <%= link_to "Logout", logout_path %>
+	<% else %>
+	  <%= link_to "Login", login_path %>
+	<% end %>
+      </div>
+      <div class="body_wrap">
+	<%= yield %>
+      </div>
     </div>
   </body>
 </html>
