@@ -42,6 +42,6 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':controller/:action/:id.:format'
   
   map.root :controller => 'dashboard', :action => 'show'
-  map.resources :product, :active_scaffold => true
-  map.resources :customer, :active_scaffold => true
+  map.resources :products, :active_scaffold => true
+  map.resources :customers, :active_scaffold => true
 end
