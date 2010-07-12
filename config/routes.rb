@@ -42,8 +42,8 @@ ActionController::Routing::Routes.draw do |map|
   #map.connect ':controller/:id.:format/:action'
   
   map.resource :user_session
-  #map.root :controller => "user_sessions", :action => "new"
-  map.root :controller => 'dashboard', :action => :index
+  map.root :controller => "user_sessions", :action => "new"
+  map.dashboard '/dashboard', :controller => 'dashboard', :action => :index
   map.resources :products, :active_scaffold => true
   map.resources :customers, :active_scaffold => true
   map.resources :users

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :require_user, :only => [:show, :edit, :update]
+  before_filter :require_user, :only => [:show, :edit, :update, :index, :new, :create]
   before_filter :require_admin_user, :only => [:new, :create, :index]
   
   def new
@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       flash[:notice] = "Account registered!"
-      redirect_back_or_default new_user_session_url
+      redirect_back_or_default users_url
     else
       render :action => :new
     end
@@ -31,7 +31,10 @@ class UsersController < ApplicationController
   end
   
   def update
-    @user = @current_user # makes our views "cleaner" and more consistent
+    @user =  User.find(params[:id]) # makes our views "cleaner" and more consistent
+    if !@user.eql?(@current_user) && !@current_user.is_admin?
+      render :text => "You are not authorized to access this page"
+    end
     if @user.update_attributes(params[:user])
       flash[:notice] = "Account updated!"
       redirect_to user_path(@user)

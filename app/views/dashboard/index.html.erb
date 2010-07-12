@@ -1,4 +1,5 @@
 <h2>Dashboard</h2><br /><br />
 <%= link_to "Product", products_path %><br /><br />
-<%= link_to "Customer", customers_path %><br /><br />
-<%= link_to "User List", users_path %>
+<% if current_user.is_admin?%>
+  <%= link_to "User List", users_path %>
+<% end %>

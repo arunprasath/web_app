@@ -1,0 +1,7 @@
+  namespace :accounts do
+    desc "Email expiring accounts to let them know"
+    task :email_expiring => :environment do
+      date = ENV['from'] ? Date.parse(ENV['from']) : Date.today
+      Account.notify_expiring(date)
+    end
+  end
