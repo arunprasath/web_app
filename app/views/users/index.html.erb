@@ -1,6 +1,7 @@
 <h1>List of Users</h1>
 
-<% @users.each do |user|%>
+<%= link_to "Create New User", new_user_path %><br /><br />
+<% @users.each do |user| %>
   <b><%= user.login %></b><br />
   <%= user.address %><br />
   <%= user.city %><br />

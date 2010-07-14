@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100711182344) do
+ActiveRecord::Schema.define(:version => 20100714191646) do
 
   create_table "accessibles", :force => true do |t|
     t.integer  "user_id"
@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(:version => 20100711182344) do
     t.string   "contact_person"
     t.text     "address"
     t.string   "city"
-    t.integer  "pincode"
-    t.integer  "phone_no"
+    t.string   "pincode"
+    t.string   "phone_no"
     t.string   "customer_key"
     t.string   "auth_key"
     t.string   "status"
