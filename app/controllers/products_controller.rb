@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
     #config.show.link = false 
     config.create.columns.exclude :customers
     config.update.columns.exclude :customers
+    #config.create.link = false  
     config.nested.add_link("Customer List", [:customers])
   end
   

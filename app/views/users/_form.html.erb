@@ -8,7 +8,7 @@
 <%= form.password_field :password_confirmation %><br />
 <br />
 <%= form.label :role %><br />
-<%= form.select :role, options_for_select(User::Role.map {|role| [role,role]}) %><br /><br />
+<%= form.select :role, options_for_select(User::Role.map {|role| [role]}, @user.role) %><br /><br />
 <br />
 <%= form.label :address %><br />
 <%= form.text_field :address %><br />

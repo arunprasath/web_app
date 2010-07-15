@@ -2,23 +2,53 @@ body {
   margin: 0px;
   margin-bottom: 25px;
   padding: 0;
-  background-color: #f0f0f0;
+  background-color: #26353D;
   font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
   font-size: 13px;
   color: #333;
 }
 
-div.container {
-  margin-top: 100px;
+div.container, div#user_nav, div.footer{
   margin-left:auto;
   margin-right:auto;
   width:960px;
 }
-div.body_wrap {
-  margin-bottom: 25px;
+
+div.container {
+background:#FFFFFF none repeat scroll 0 0;
+-moz-border-radius:15px;
+min-height:400px;
 }
-#user_nav {
-  float: right;
-  font-size: 12px;
-  margin-top:-93px;
+
+div#body_wrap {
+margin-bottom: 25px;
+padding: 10px;
+}
+
+div#user_nav {
+height:90px;
+margin-top:10px;
+}
+
+div#profile-box {
+float:right;
+padding:10px;
+font-size:12px;
+margin-top:10px;
+background:#FFFFFF none repeat scroll 0 0;
+-moz-border-radius:15px;
+height:35px;
+width:200px;
+}
+
+div.footer {
+background:#FFFFFF none repeat scroll 0 0;
+font-size:12px;
+font-color:#000;
+height:25px;
+margin-top:20px;
+-moz-border-radius:10px;
+}
+
+p.session-link {
 }

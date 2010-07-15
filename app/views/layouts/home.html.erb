@@ -11,19 +11,27 @@
     <%= active_scaffold_includes %>
   </head>
   <body>
-    <div class='container'>
       <div id="user_nav">
-	<% if current_user %>
-	  <%= link_to "Dashboard", dashboard_url %> |		
-	  <%= link_to "Edit Profile", edit_user_url(current_user) %> |
-	  <%= link_to "Logout", logout_path %>
-	<% else %>
-	  <%= link_to "Login", login_path %>
-	<% end %>
+	<div id="profile-box">
+	  <p class='session-link'>
+	  <% if current_user %>
+	    <%= link_to "Dashboard", dashboard_url %> |		
+	    <%= link_to "Edit Profile", edit_user_url(current_user) %> |
+	    <%= link_to "Logout", logout_path %>
+	  <% else %>
+	    <%= link_to "Login", login_path %>
+	  <% end %>
+	    </p>
+	</div>
       </div>
-      <div class="body_wrap">
+    <div class='container'>
+
+      <div id ="body_wrap">
 	<%= yield %>
       </div>
+    </div>
+    <div class='footer'>
+      <p>copyright 2010 All Rights Reserved.</p>
     </div>
   </body>
 </html>
