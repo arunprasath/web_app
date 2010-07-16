@@ -1,8 +1,10 @@
 <%= link_to "Back to User List", users_path %>
-<h1>Register New User</h1>
-
+<br /><br />
+<fieldset>
+<legend>New User</legend>
 <% form_for @user, :url => { :action => "create" }  do |f| %>
   <%= f.error_messages %>
   <%= render :partial => "form", :object => f %>
   <%= f.submit "Register" %>
 <% end %>
+</fieldset>

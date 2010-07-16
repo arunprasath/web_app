@@ -1,24 +1,32 @@
-<%= form.label :login %><br />
-<%= form.text_field :login %><br />
-<br />
-<%= form.label :password, form.object.new_record? ? nil : "Change password" %><br />
-<%= form.password_field :password %><br />
-<br />
-<%= form.label :password_confirmation %><br />
-<%= form.password_field :password_confirmation %><br />
-<br />
-<%= form.label :role %><br />
-<%= form.select :role, options_for_select(User::Role.map {|role| [role]}, @user.role) %><br /><br />
-<br />
-<%= form.label :address %><br />
-<%= form.text_field :address %><br />
-<br />
-<%= form.label :city %><br />
-<%= form.text_field :city %><br />
-<br />
-<%= form.label :pincode %><br />
-<%= form.text_field :pincode %><br />
-<br />
-<%= form.label :phone_no %><br />
-<%= form.text_field :phone_no %><br />
-<br />
+<p>
+<%= form.label :login %>
+<%= form.text_field :login %>
+</p>
+<p>
+<%= form.label :password, form.object.new_record? ? nil : "Change password" %>
+<%= form.password_field :password %>
+</p>
+<p>
+<%= form.label :password_confirmation %>
+<%= form.password_field :password_confirmation %>
+</p>
+<p>
+<%= form.label :role %>
+<%= form.select :role, options_for_select(User::Role.map {|role| [role]}, @user.role) %>
+</p>
+<p>
+<%= form.label :address %>
+<%= form.text_field :address %>
+</p>
+<p>
+<%= form.label :city %>
+<%= form.text_field :city %>
+</p>
+<p>
+<%= form.label :pincode %>
+<%= form.text_field :pincode %>
+</p>
+<p>
+<%= form.label :phone_no %>
+<%= form.text_field :phone_no %>
+</p>
