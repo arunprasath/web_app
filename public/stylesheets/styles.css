@@ -262,7 +262,7 @@ li ol, li ul {
 
 #content {
 	#float: right;
-	#width: 605px;
+	width: 890px;
 	margin: 0;
 	padding-left: 20px;
 	#border-left: 1px solid #ddd;

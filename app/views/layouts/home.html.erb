@@ -20,15 +20,16 @@
   </div>
   <div id="nav">
     <ul>
-      <li><%= link_to "Home", dashboard_url %></li>
-      <li><%= link_to "Products", products_url %></li>
-      <li><%= link_to "Customers", customers_url %></li>
-      <li><%= link_to "Contat Us", dashboard_url %></li>
+      <li><%= link_to "Home", root_url %></li>
+      <% if current_user %>
+      	<li><%= link_to "Products", products_url %></li>
+      <%end%>
+      <li><%= link_to "Contat Us", root_url %></li>
       <div id="user_nav">
 	<div id="profile-box">
 	  <p class='session-link'>
 	  <% if current_user %>
-	    <%= link_to "Dashboard", dashboard_url %> |		
+	    Welcome <%= current_user.login %> |
 	    <%= link_to "Edit Profile", edit_user_url(current_user) %> |
 	    <%= link_to "Logout", logout_path %>
 	  <% else %>
