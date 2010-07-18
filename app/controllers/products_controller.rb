@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   before_filter :require_admin_user, :only => [:new, :create, :destroy]
   
   def index
-    @products = Product.list
+    @products = current_user.products
   end
 
   def new
@@ -13,6 +13,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(params[:product])
     if @product.save
+      @product.accessibles.create(:user_id => current_user.id)
       flash[:notice] = "Product was ssuccessfully added"
       redirect_to products_path
     else
@@ -34,6 +35,31 @@ class ProductsController < ApplicationController
       flash[:error] = "Problem in Product update"
       render :action => 'edit'
     end    
+  end
+
+  def assign_users
+    @product = Product.find(params[:id])
+    if params[:commit].eql?('Assign')
+      @accessible = @product.accessibles.build(params[:accessible])
+      if @accessible.save
+	flash[:notice]= "User was successfully assigned."
+      else
+	flash[:notice]= "Problem in User assign."	
+      end
+      redirect_to assign_users_path(:id => @product.id)
+    end
+  end
+
+  def remove_user
+    debugger
+    @product = Product.find(params[:product_id])
+    accessible = @product.accessibles.find(params[:id].to_i)
+    if accessible.destroy
+      flash[:notice] = "Successfully removed"
+    else
+      flash[:error] = "Problem in removing"
+    end
+    redirect_to assign_users_path(:id => @product.id)
   end
 
   def destroy

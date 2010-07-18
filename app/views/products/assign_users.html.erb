@@ -1,0 +1,29 @@
+<h3>Assign User to Product</h3><br />
+<div class='back_link'><%= link_to "Back to Product List", products_path %></div><br /><br />
+<h5> Select User from list</h5>
+<% form_tag :url => assign_users_path, :id => @product.id  do %>
+  <%= select_tag "accessible[user_id]", options_for_select(User.all.map {|u| [u.login,u.id]}), :include_blank => true %>
+  <%= submit_tag "Assign"%>
+<% end %>
+<br /><br />  
+<h3>List of Users Assigned</h3>
+<table>
+  <tbody>
+    <tr>
+      <th>Name</th>
+      <th>City</th>
+      <th></th>
+    </tr>
+    <% if @product.users.present? %>
+      <% @product.accessibles.each do |accessible|%>
+	<tr>
+	  <td><%= accessible.user.login %></td>
+	  <td><%= accessible.user.city %></td>
+	  <td><%= link_to 'Remove', remove_user_path(:id => accessible.id, :product_id => @product.id) %></td>
+	</tr>
+      <% end %>
+    <% else %>
+      <tr><td style="text-align:center" colspan=3>No user assigned to this Product</td></tr>
+    <% end %>
+  </tbody>
+</table>

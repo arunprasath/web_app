@@ -49,4 +49,6 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
   map.login "login", :controller => "user_sessions", :action => "new"
   map.logout "logout", :controller => "user_sessions", :action => "destroy"
+  map.assign_users "assign_users", :controller => "products", :action => "assign_users"
+  map.remove_user "remove_user", :controller => "products", :action => 'remove_user'
 end
