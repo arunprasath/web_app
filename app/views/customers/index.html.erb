@@ -1,0 +1,35 @@
+<h3>List of Customers for <%= @product.name %></h3>
+<div class='back_link'><%= link_to "Back to Product List", products_path %></div>
+<div class='create_link'><%= link_to "Create New Customer", new_customer_path(:product_id => @product.id) %></div>
+<table>
+  <tbody>
+    <tr>
+      <th>Customer Name</th>
+      <th>Contact Person</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>Pincode</th>
+      <th>Phone/Mobile</th>
+      <th>Auth Key</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+    <% if @customers.present? %>
+      <% @customers.each do |customer| %>
+	<tr>
+	  <td><b><%= customer.name %></td>
+	  <td><%= customer.contact_person %></td>
+	  <td><%= customer.address %></td>
+	  <td><%= customer.city %></td>
+	  <td><%= customer.pincode %></td>
+	  <td><%= customer.phone_no %></td>
+	  <td><%= customer.auth_key %></td>
+	  <td><%= customer.status %></td>
+	  <td><%= link_to "Edit", edit_customer_path(customer, :product_id => customer.product.id) %> | <%= link_to "Destroy", customer, :method => :delete, :confirm => "Are you sure?" %></td>
+	</tr>
+      <% end %>
+    <% else %>
+      <tr><td style="text-align:center" colspan=9>No Customers</td></tr>
+    <% end %>
+  </tbody>
+</table>

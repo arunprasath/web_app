@@ -17,3 +17,27 @@ padding-left:24px;
 padding-right:17px;
 #width:209px;
 }
+div.fieldWithErrors {
+#width:auto;
+display:inline-block;
+line-height:1.9em;
+margin-bottom:20px;
+width:145px;
+}
+div.create_link {
+float:right;
+padding:8px;
+}
+div.back_link {
+float:left;
+padding:8px;
+}
+p.error {
+color:red;
+font-weight:bolder;
+}
+p.notice {
+color:green;
+font-weight:bolder;
+}
+

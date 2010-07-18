@@ -1,0 +1,13 @@
+<%= link_to "Back to Customer List", customers_path(:product_id => @customer.product.id) %>
+<br /><br />
+<fieldset>
+<legend>Edit Customer</legend>
+<% form_for @customer, :url => { :action => "update" } do |f| %>
+  <%= f.error_messages %>
+  <%= hidden_field_tag "product_id", @customer.product.id %>
+  <%= render :partial => "form", :object => f %>
+  <%= f.submit "Update" %> <%= link_to 'cancel', customers_path(:product_id => @customer.product.id)%>
+
+<% end %>
+</fieldset>
+

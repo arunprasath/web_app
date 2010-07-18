@@ -1,0 +1,11 @@
+<%= link_to "Back to Customer List", customers_path(:product_id => @product.id) %>
+<br /><br />
+<fieldset>
+<legend>New Customer</legend>
+<% form_for @customer, :url => { :action => "create" }  do |f| %>
+  <%= f.error_messages %>
+  <%= hidden_field_tag "product_id", @product.id %>
+  <%= render :partial => "form", :object => f %>
+  <%= f.submit "Create" %> <%= link_to 'cancel', customers_path(:product_id => @product.id)%>
+<% end %>
+</fieldset>

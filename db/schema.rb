@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100714191646) do
+ActiveRecord::Schema.define(:version => 20100718101801) do
 
   create_table "accessibles", :force => true do |t|
     t.integer  "user_id"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20100714191646) do
     t.integer  "product_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_deleted",     :default => false
   end
 
   create_table "products", :force => true do |t|
@@ -40,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20100714191646) do
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_deleted",   :default => false
   end
 
   create_table "users", :force => true do |t|

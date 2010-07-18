@@ -1,0 +1,32 @@
+<p>
+<%= form.label :name %>
+<%= form.text_field :name %>
+</p>
+<p>
+<%= form.label :contact_person %>
+<%= form.text_field :contact_person %>
+</p>
+<p>
+<%= form.label :address %>
+<%= form.text_area :address, :rows => 5, :cols => 34%>
+</p>
+<p>
+<%= form.label :city %>
+<%= form.text_field :city %>
+</p>
+<p>
+<%= form.label :pincode  %>
+<%= form.text_field :pincode %>
+</p>
+<p>
+<%= form.label :phone_no %>
+<%= form.text_field :phone_no %>
+</p>
+<p>
+<%= form.label :customer_key %>
+<%= form.text_field :customer_key %>
+</p>
+<p>
+<%= form.label :status %>
+<%= form.select :status, options_for_select(["Active","Inactive"], @customer.status) %>
+</p>

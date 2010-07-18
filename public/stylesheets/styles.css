@@ -19,16 +19,16 @@ table {
 }
 
 th, td {
-	#padding: 10px 10px;
+	padding: 4px;
 }
 
 th {
 	color: #fff;
-	#background: #333 none repeat-x scroll left top;
+	background: #333 none repeat-x scroll left top;
 }
 
 td {
-	#background: #ddd;
+	background: #ddd;
 	border-bottom: 1px solid #fff;
 }
 

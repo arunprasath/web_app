@@ -1,11 +1,31 @@
-<h1>List of Users</h1>
+<h3>List of Users</h3>
 
-<%= link_to "Create New User", new_user_path %><br /><br />
-<% @users.each do |user| %>
-  <b><%= user.login %></b><br />
-  <%= user.address %><br />
-  <%= user.city %><br />
-  <%= link_to "Edit", edit_user_path(user) %> | <%= link_to "Destroy", :method => :delete %><br /><br />
-
-<% end %>
-
+<div class='create_link'><%= link_to "Create New User", new_user_path %></div>
+<table>
+  <tbody>
+    <tr>
+      <th>Login Name</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>Pincode</th>
+      <th>Phone/Mobile</th>
+      <th>Role</th>
+      <th></th>
+    </tr>
+    <% if @users.present? %>
+      <% @users.each do |user| %>
+	<tr>
+	  <td><%= user.login %></td>
+	  <td><%= user.address %></td>
+	  <td><%= user.city %></td>
+	  <td><%= user.pincode %></td>
+	  <td><%= user.phone_no %></td>
+	  <td><%= user.role %></td>
+	  <td><%= link_to "Edit", edit_user_path(user) %> | <%= link_to "Destroy", user, :method => :delete %></td>
+	</tr>
+      <% end %>
+    <% else %>
+      <tr><td style="text-align:center" colspan=4>No users</td></tr>
+    <% end %>
+  </tbody>
+</table>

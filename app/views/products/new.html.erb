@@ -1,0 +1,10 @@
+<%= link_to "Back to Product List", products_path %>
+<br /><br />
+<fieldset>
+<legend>New Product</legend>
+<% form_for @product, :url => { :action => "create" }  do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => "form", :object => f %>
+  <%= f.submit "Create" %>
+<% end %>
+</fieldset>
