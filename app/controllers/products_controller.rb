@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   before_filter :require_admin_user, :only => [:new, :create, :destroy]
   
   def index
-    @products = current_user.products
+    @products = current_user.products.list
   end
 
   def new
