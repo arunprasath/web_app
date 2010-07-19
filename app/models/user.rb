@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :accessibles, :dependent => :destroy
 
   Role = %w(admin normal_user)
-
+  named_scope :list , :conditions => ["is_deleted = ?", false]
   def is_admin?
     self.role.eql?("admin")
   end

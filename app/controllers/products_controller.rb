@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_filter :require_user
-  before_filter :require_admin_user, :only => [:new, :create, :destroy]
+  before_filter :require_admin_user, :only => [:new, :create, :destroy, :assign_users, :remove_user]
   
   def index
     @products = current_user.products.list
@@ -51,7 +51,6 @@ class ProductsController < ApplicationController
   end
 
   def remove_user
-    debugger
     @product = Product.find(params[:product_id])
     accessible = @product.accessibles.find(params[:id].to_i)
     if accessible.destroy

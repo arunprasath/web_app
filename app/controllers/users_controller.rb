@@ -44,12 +44,12 @@ class UsersController < ApplicationController
   end
   
   def index
-    @users = User.all
+    @users = User.list
   end
   
   def destroy
     @user = User.find(params[:id])
-    if @user.destroy
+    if @user.update_attributes(:is_deleted => true)
       flash[:notice] = "User successfully deleted"
       redirect_to users_path
     else

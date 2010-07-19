@@ -17,7 +17,7 @@
 	  <td><%= product.description %></td>
 	  <td><%= product.developed_by %></td>
 	  <td><%= product.status %></td>
-	  <td><%= link_to "Assign User", assign_users_path(:id => product.id) %> | <%= link_to "Customer list", customers_path(:product_id => product.id) %> | <%= link_to "Edit", edit_product_path(product) %> <% if current_user.is_admin? %>| <%= link_to "Destroy", product, :method => :delete, :confirm => "Are you sure?" if current_user.is_admin? %> <% end %></td>
+	  <td><% if current_user.is_admin? %> <%= link_to "Assign User", assign_users_path(:id => product.id) %> |  <% end %> <%= link_to "Customer list", customers_path(:product_id => product.id) %> | <%= link_to "Edit", edit_product_path(product) %> <% if current_user.is_admin? %>| <%= link_to "Destroy", product, :method => :delete, :confirm => "Are you sure?" %> <% end %></td>
 	</tr>
       <% end %>
     <% else %>

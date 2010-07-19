@@ -9,7 +9,7 @@
 <p>
 <%= form.label :password_confirmation %>
 <%= form.password_field :password_confirmation %>
-</p>
+</p><br />
 <p>
 <%= form.label :role %>
 <%= form.select :role, options_for_select(User::Role.map {|role| [role]}, @user.role) %>

@@ -5,7 +5,8 @@ class Customer < ActiveRecord::Base
   #before_create :set_auth_key
   
   named_scope :list, :conditions => ["is_deleted=?",false]
+  
   def set_auth_key
-    self.auth_key = Digest::SHA1.hexdigest(Time.now.to_s + rand(12341234).to_s)[1..15]
+    self.auth_key = Digest::SHA1.hexdigest(Time.now.to_s + rand(12341234).to_s)[1..8]
   end
 end
