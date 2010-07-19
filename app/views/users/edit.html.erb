@@ -1,4 +1,4 @@
-<%= link_to "Back to dashboard", dashboard_path  if current_user.role.eql?("normal_user")%>
+<%= link_to "Back to home", root_path  if current_user.role.eql?("normal_user")%>
 <%= link_to "Back to User List", users_path  if current_user.role.eql?("admin")%>
 <br /><br />
 <fieldset>

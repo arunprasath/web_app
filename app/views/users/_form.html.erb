@@ -11,8 +11,10 @@
 <%= form.password_field :password_confirmation %>
 </p><br />
 <p>
-<%= form.label :role %>
-<%= form.select :role, options_for_select(User::Role.map {|role| [role]}, @user.role) %>
+<% if current_user.is_admin? %>
+  <%= form.label :role %>
+  <%= form.select :role, options_for_select(User::Role.map {|role| [role]}, @user.role) %>
+<% end %>
 </p>
 <p>
 <%= form.label :address %>
