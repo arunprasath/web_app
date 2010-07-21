@@ -2,7 +2,7 @@
 <div class='back_link'><%= link_to "Back to Product List", products_path %></div><br /><br />
 <h5> Select User from list</h5>
 <% form_tag :url => assign_users_path, :id => @product.id  do %>
-  <%= select_tag "accessible[user_id]", options_for_select(User.all.map {|u| [u.login,u.id]}), :include_blank => true %>
+  <%= select_tag "accessible[user_id]", options_for_select(User.list.map {|u| [u.login,u.id]}), :include_blank => true %>
   <%= submit_tag "Assign"%>
 <% end %>
 <br /><br />  
