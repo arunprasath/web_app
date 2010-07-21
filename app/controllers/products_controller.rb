@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   before_filter :require_admin_user, :only => [:new, :create, :destroy, :assign_users, :remove_user]
   
   def index
-    @products = current_user.products.list
+    @products = current_user.is_admin? ? Product.list : current_user.products.list
   end
 
   def new
@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(params[:product])
     if @product.save
-      @product.accessibles.create(:user_id => current_user.id)
+      #@product.accessibles.create(:user_id => current_user.id)
       flash[:notice] = "Product was ssuccessfully added"
       redirect_to products_path
     else
