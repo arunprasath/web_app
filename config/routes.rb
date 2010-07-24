@@ -47,6 +47,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :products#, :active_scaffold => true
   map.resources :customers#, :active_scaffold => true
   map.resources :users
+  map.contact_us 'contact_us', :controller => 'dashboard', :action => 'contact_us'
   map.login "login", :controller => "user_sessions", :action => "new"
   map.logout "logout", :controller => "user_sessions", :action => "destroy"
   map.assign_users "assign_users", :controller => "products", :action => "assign_users"
