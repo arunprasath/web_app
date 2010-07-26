@@ -40,4 +40,6 @@ p.notice {
 color:green;
 font-weight:bolder;
 }
-
+form input, form select, form textarea {
+border:1px solid #888888;
+}
