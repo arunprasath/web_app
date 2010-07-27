@@ -43,3 +43,6 @@ font-weight:bolder;
 form input, form select, form textarea {
 border:1px solid #888888;
 }
+div.fieldWithErrors input, div.fieldWithErrors input , div.fieldWithErrors input {
+border:1px solid red;
+}
