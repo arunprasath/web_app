@@ -14,3 +14,10 @@
 <%= form.label :status %>
 <%= form.select :status, options_for_select(["Active","Inactive"], @product.status) %>
 </p>
+
+<script type='text/javascript'>
+  var f2 = new LiveValidation('product_name');
+  f2.add( Validate.Format, { pattern: /^[a-zA-Z 0-9]+$/ } );
+  var f2 = new LiveValidation('product_developed_by');
+  f2.add( Validate.Format, { pattern: /^[a-zA-Z]+$/ } );
+</script>

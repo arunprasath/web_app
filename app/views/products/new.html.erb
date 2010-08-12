@@ -3,7 +3,7 @@
 <fieldset>
 <legend>New Product</legend>
 <% form_for @product, :url => { :action => "create" }  do |f| %>
-  <%= f.error_messages %>
+  <%= error_messages_for :product, :header_message => "Please Try Again!", :message => "We had some problems with following fields:" %>
   <%= render :partial => "form", :object => f %>
   <%= f.submit "Create" %>
 <% end %>

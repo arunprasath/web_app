@@ -32,3 +32,17 @@
 <%= form.label :phone_no %>
 <%= form.text_field :phone_no %>
 </p>
+
+<script type='text/javascript'>
+  var f3 = new LiveValidation('user_pincode');
+  f3.add( Validate.Numericality, { onlyInteger: true } );
+  f3.add( Validate.Length, { maximum: 6 } );
+  var f4 = new LiveValidation('user_phone_no');
+  f4.add( Validate.Numericality, { onlyInteger: true } );
+  f4.add( Validate.Length, { maximum: 12 } );
+  var f2 = new LiveValidation('user_login');
+  f2.add( Validate.Format, { pattern: /^[a-zA-Z 0-9]+$/ } );
+  var f2 = new LiveValidation('user_city');
+  f2.add( Validate.Format, { pattern: /^[a-zA-Z 0-9]+$/ } );
+</script>
+

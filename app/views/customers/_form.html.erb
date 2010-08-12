@@ -30,3 +30,19 @@
 <%= form.label :status %>
 <%= form.select :status, options_for_select(["Active","Inactive"], @customer.status) %>
 </p>
+
+<script type='text/javascript'>
+  var f3 = new LiveValidation('customer_pincode');
+  f3.add( Validate.Numericality, { onlyInteger: true } );
+  f3.add( Validate.Length, { maximum: 6 } );
+  var f4 = new LiveValidation('customer_phone_no');
+  f4.add( Validate.Numericality, { onlyInteger: true } );
+  f4.add( Validate.Length, { maximum: 12 } );
+  var f2 = new LiveValidation('customer_name');
+  f2.add( Validate.Format, { pattern: /^[a-zA-Z 0-9]+$/ } );
+  var f2 = new LiveValidation('customer_contact_person');
+  f2.add( Validate.Format, { pattern: /^[a-zA-Z 0-9]+$/ } );
+   var f2 = new LiveValidation('customer_city');
+  f2.add( Validate.Format, { pattern: /^[a-zA-Z 0-9]+$/ } );
+</script>
+

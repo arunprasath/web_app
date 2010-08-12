@@ -3,7 +3,8 @@
 <fieldset>
 <legend>New Customer</legend>
 <% form_for @customer, :url => { :action => "create" }  do |f| %>
-  <%= f.error_messages %>
+  <%= error_messages_for :customer, :header_message => "Please Try Again!", :message => "We had some problems with following fields:" %><br />
+
   <%= hidden_field_tag "product_id", @product.id %>
   <%= render :partial => "form", :object => f %>
   <%= f.submit "Create" %> <%= link_to 'cancel', customers_path(:product_id => @product.id)%>

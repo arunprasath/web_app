@@ -5,5 +5,8 @@ class Product < ActiveRecord::Base
 
   validates_presence_of :name, :status
 
+  validates_format_of :name, :with => /^[a-zA-Z ]+$/x
+  validates_format_of :developed_by, :with => /^[a-zA-Z ]+$/x
+
   named_scope :list , :conditions => ["is_deleted = ?", false]
 end
