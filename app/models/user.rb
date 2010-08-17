@@ -13,7 +13,8 @@ class User < ActiveRecord::Base
   validates_format_of :login, :with => /^[a-zA-Z 0-9]+$/x
   validates_format_of :city, :with => /^[a-zA-Z 0-9]+$/x 
 
-  named_scope :list , :conditions => ["is_deleted = ?", false]
+  named_scope :list , :conditions => ["is_deleted = ? AND status = ?", false, 'Active']
+  named_scope :inactive_list , :conditions => ["is_deleted = ? AND status = ?", false, 'Inactive']
   
   def is_admin?
     self.role.eql?("admin")

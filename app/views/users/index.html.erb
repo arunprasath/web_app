@@ -1,6 +1,13 @@
 <h3>List of Users</h3>
 
 <div class='create_link'><%= link_to "Create New User", new_user_path %></div>
+<div id="tabs">
+  <ul>
+    <li><a href="#current"><span>Curent Users</span></a></li>
+    <li><a href="#existing"><span>Existing Users</span></a></li>
+  </ul>
+
+<div id='current'>
 <table>
   <tbody>
     <tr>
@@ -21,11 +28,43 @@
 	  <td><%= user.pincode %></td>
 	  <td><%= user.phone_no %></td>
 	  <td><%= user.role %></td>
-	  <td><%= link_to "Edit", edit_user_path(user) %> | <%= link_to "Destroy", user, :method => :delete, :confirm => "Are You Sure?" %></td>
+	  <td><%= link_to "Edit", edit_user_path(user) %> | <%= link_to "Inactive", in_activate_path(:id => user.id, :class => 'user'), :confirm => "Are you sure?" %></td>
 	</tr>
       <% end %>
     <% else %>
-      <tr><td style="text-align:center" colspan=4>No users</td></tr>
+      <tr><td style="text-align:center" colspan=7>No users</td></tr>
     <% end %>
   </tbody>
 </table>
+</div>
+<div id='existing'>
+<table>
+  <tbody>
+    <tr>
+      <th>Login Name</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>Pincode</th>
+      <th>Phone/Mobile</th>
+      <th>Role</th>
+      <th></th>
+    </tr>
+    <% if @inactive_users.present? %>
+      <% @inactive_users.each do |user| %>
+	<tr>
+	  <td><%= user.login %></td>
+	  <td><%= user.address %></td>
+	  <td><%= user.city %></td>
+	  <td><%= user.pincode %></td>
+	  <td><%= user.phone_no %></td>
+	  <td><%= user.role %></td>
+	  <td><%= link_to "Edit", edit_user_path(user) %> | <%= link_to "Active", activate_path(:id => user.id, :class => 'user'), :confirm => "Are you sure?" %> | <%= link_to "Destroy", user, :method => :delete, :confirm => "Are You Sure?" %></td>
+	</tr>
+      <% end %>
+    <% else %>
+      <tr><td style="text-align:center" colspan=7>No users</td></tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>

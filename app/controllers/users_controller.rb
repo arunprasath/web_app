@@ -45,6 +45,7 @@ class UsersController < ApplicationController
   
   def index
     @users = User.list
+    @inactive_users = User.inactive_list
   end
   
   def destroy

@@ -32,6 +32,10 @@
 <%= form.label :phone_no %>
 <%= form.text_field :phone_no %>
 </p>
+<p>
+<%= form.label :status %>
+<%= form.select :status, options_for_select(["Active","Inactive"], @user.status) %>
+</p>
 
 <script type='text/javascript'>
   var f3 = new LiveValidation('user_pincode');

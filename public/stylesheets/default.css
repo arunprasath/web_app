@@ -25,8 +25,8 @@ margin-bottom:20px;
 width:145px;
 }
 div.create_link {
-float:right;
 padding:8px;
+float:right;
 }
 div.back_link {
 float:left;
@@ -80,3 +80,18 @@ div.errorExplanation {
   -moz-border-radius:10px;
   padding : 10px;
 }
+
+.ui-widget-header {
+background:none repeat scroll 0 0 #6B6868;
+border:none;
+}
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+color:#EB8F00;
+}
+.ui-widget-content {
+background:none;
+border:1px solid #DDDDDD;
+color:#333333;
+clear:both;
+}
+

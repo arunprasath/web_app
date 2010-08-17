@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
   
   def index
     @products = current_user.is_admin? ? Product.list : current_user.products.list
+    @inactive_products = current_user.is_admin? ? Product.inactive_list : current_user.products.inactive_list
   end
 
   def new
@@ -49,7 +50,7 @@ class ProductsController < ApplicationController
       redirect_to assign_users_path(:id => @product.id)
     end
   end
-
+  
   def remove_user
     @product = Product.find(params[:product_id])
     accessible = @product.accessibles.find(params[:id].to_i)

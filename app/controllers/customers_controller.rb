@@ -3,6 +3,7 @@ class CustomersController < ApplicationController
 
   def index
     @customers = @product.customers.list
+    @inactive_customers = @product.customers.inactive_list
   end
 
   def new

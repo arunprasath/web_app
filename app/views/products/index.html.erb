@@ -1,6 +1,13 @@
 <h3>List of Products</h3>
 
 <div class='create_link'><%= link_to "Create New Product", new_product_path  if current_user.is_admin? %></div>
+<div id="tabs">
+  <ul>
+    <li><a href="#current"><span>Curent Products</span></a></li>
+    <li><a href="#existing"><span>Existing Products</span></a></li>
+  </ul>
+
+<div id='current'>
 <table>
   <tbody>
     <tr>
@@ -18,7 +25,7 @@
 	  <td><%= product.developed_by %></td>
 	  <td><%= product.status %></td>
 	  <td> 
-	    <%= link_to "Customer list", customers_path(:product_id => product.id) %> <% if current_user.is_admin? %> | <%= link_to "Assign User", assign_users_path(:id => product.id) %> | <%= link_to "Edit", edit_product_path(product) %> | <%= link_to "Destroy", product, :method => :delete, :confirm => "Are you sure?" %> <% end %></td>
+	    <%= link_to "Customer list", customers_path(:product_id => product.id) %> <% if current_user.is_admin? %> | <%= link_to "Assign User", assign_users_path(:id => product.id) %> | <%= link_to "Edit", edit_product_path(product) %> | <%= link_to "Inactive", in_activate_path(:id => product.id, :class => 'product'), :confirm => "Are you sure?" %> <% end %></td>
 	</tr> 
       <% end %>
     <% else %>
@@ -26,3 +33,32 @@
     <% end %>
   </tbody>
 </table>
+</div>
+<div id='existing'>
+<table>
+  <tbody>
+    <tr>
+      <th>Product Name</th>
+      <th width=30%>Description</th>
+      <th>Developed by</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+    <% if @inactive_products.present? %>
+      <% @inactive_products.each do |product| %>
+	<tr>
+	  <td><b><%= product.name %></td>
+	  <td><%= product.description %></td>
+	  <td><%= product.developed_by %></td>
+	  <td><%= product.status %></td>
+	  <td> 
+	    <%= link_to "Customer list", customers_path(:product_id => product.id) %> <% if current_user.is_admin? %> | <%= link_to "Edit", edit_product_path(product) %> | <%= link_to "Active", activate_path(:id => product.id, :class => 'product'), :confirm => "Are you sure?" %>  | <%= link_to "Destroy", product, :method => :delete, :confirm => "Are you sure?" %> <% end %></td>
+	</tr> 
+      <% end %>
+    <% else %>
+      <tr><td style="text-align:center" colspan=5>No Products</td></tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>

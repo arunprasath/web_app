@@ -9,7 +9,8 @@ class Customer < ActiveRecord::Base
   validates_format_of :city, :with => /^[a-zA-Z 0-9]+$/x
   validates_format_of :contact_person, :with => /^[a-zA-Z 0-9]+$/x 
   
-  named_scope :list, :conditions => ["is_deleted=?",false]
+  named_scope :list, :conditions => ["is_deleted=? AND status = ?",false, 'Active']
+  named_scope :inactive_list, :conditions => ["is_deleted=? AND status = ?",false, 'Inactive']
   
   def set_auth_key
     self.auth_key = Digest::SHA1.hexdigest(Time.now.to_s + rand(12341234).to_s)[1..8]

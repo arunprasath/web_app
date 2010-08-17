@@ -8,5 +8,6 @@ class Product < ActiveRecord::Base
   validates_format_of :name, :with => /^[a-zA-Z ]+$/x
   validates_format_of :developed_by, :with => /^[a-zA-Z ]+$/x
 
-  named_scope :list , :conditions => ["is_deleted = ?", false]
+  named_scope :list , :conditions => ["is_deleted = ? AND status = 'Active'", false]
+  named_scope :inactive_list , :conditions => ["is_deleted = ? AND status = 'Inactive'", false]
 end

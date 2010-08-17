@@ -15,6 +15,30 @@ class ApplicationController < ActionController::Base
   #  config.ignore_columns.add [:created_at, :updated_at]
   #end
 
+  def activate
+    model = params[:class]
+    record = model.humanize.constantize.find params[:id]
+    if record.update_attribute(:status, 'Active')
+      flash[:notice]= "#{record.class} was successfully Activated."
+    else
+      flash[:notice]= "Problem in update"
+    end
+    redirect_to :controller => model.pluralize, :action => 'index' if !model.eql?('customer')
+    redirect_to :controller => model.pluralize, :action => 'index', :product_id => record.product_id if model.eql?('customer')  
+  end
+
+  def in_activate
+    model = params[:class]
+    record = model.humanize.constantize.find params[:id]
+    if record.update_attribute(:status, 'Inactive')
+      flash[:notice]= "#{record.class} was successfully Inactivated."
+    else
+      flash[:notice]= "Problem in update"
+    end
+    redirect_to :controller => model.pluralize, :action => 'index' if !model.eql?('customer')
+    redirect_to :controller => model.pluralize, :action => 'index', :product_id => record.product_id if model.eql?('customer')  
+  end
+
   private
   def current_user_session
     return @current_user_session if defined?(@current_user_session)
@@ -50,4 +74,5 @@ class ApplicationController < ActionController::Base
     redirect_to(session[:return_to] || default)
     session[:return_to] = nil
   end
+
 end
