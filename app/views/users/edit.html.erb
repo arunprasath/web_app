@@ -4,7 +4,7 @@
 <fieldset>
 <legend>Edit User</legend>
 <% form_for @user, :url => { :action => "update" } do |f| %>
-  <%= error_messages_for :user, :header_message => "Please Try Again!", :message => "We had some problems with following fields:" %>
+  <%#= error_messages_for :user, :header_message => "Please Try Again!", :message => "We had some problems with following fields:" %>
   <%= render :partial => "form", :object => f %>
   <%= f.submit "Update" %>
 <% end %>

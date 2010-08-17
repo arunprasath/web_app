@@ -12,6 +12,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Account registered!"
       redirect_back_or_default users_url
     else
+      flash[:error] = "Problem in User Profile Creation.Please try again.."
       render :action => :new
     end
   end
@@ -39,6 +40,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Account updated!"
       redirect_to user_path(@user)
     else
+      flash[:error] = "Problem in User Profile update.Please try again.."
       render :action => :edit
     end
   end

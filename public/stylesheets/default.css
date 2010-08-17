@@ -52,7 +52,8 @@ border:1px solid red;
 }
 
 .LV_valid {
-    color:#00CC00;
+  color:#00CC00;
+  display:none;
 }
 	
 .LV_invalid {

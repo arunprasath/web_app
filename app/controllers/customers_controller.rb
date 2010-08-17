@@ -17,7 +17,7 @@ class CustomersController < ApplicationController
       flash[:notice] = "Customer was ssuccessfully added"
       redirect_to customers_path(:product_id => @product.id)
     else
-      flash[:error] = "Problem in Customer creation"
+      flash[:error] = "Problem in Customer creation.Please try again.."
       render :action => 'new', :product_id => @product.id
     end
   end
@@ -32,7 +32,7 @@ class CustomersController < ApplicationController
       flash[:notice] = "Customer was successfully updated"
       redirect_to customers_path(:product_id => @customer.product.id)
     else
-      flash[:error] = "Problem in Customer update"
+      flash[:error] = "Problem in Customer update.Please try again.."
       render :action => 'edit'
     end    
   end

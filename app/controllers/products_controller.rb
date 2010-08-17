@@ -18,7 +18,7 @@ class ProductsController < ApplicationController
       flash[:notice] = "Product was ssuccessfully added"
       redirect_to products_path
     else
-      flash[:error] = "Problem in Product creation"
+      flash[:error] = "Problem in Product creation.Please try again..."
       render :action => 'new'
     end
   end
@@ -33,7 +33,7 @@ class ProductsController < ApplicationController
       flash[:notice] = "Product was successfully updated"
       redirect_to products_path
     else
-      flash[:error] = "Problem in Product update"
+      flash[:error] = "Problem in Product update.Please try again..."
       render :action => 'edit'
     end    
   end
