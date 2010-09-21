@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   
   has_many :products, :through => :accessibles
   has_many :accessibles, :dependent => :destroy
+  has_many :customers
 
   Role = %w(admin normal_user)
 

@@ -2,8 +2,8 @@ class CustomersController < ApplicationController
   before_filter :find_product, :only => [:index, :new, :edit, :create]
 
   def index
-    @customers = @product.customers.list
-    @inactive_customers = @product.customers.inactive_list
+    @customers = current_user.is_admin? ? @product.customers.list : @product.customers.restricted_list(current_user.id)
+    @inactive_customers = current_user.is_admin? ? @product.customers.inactive_list : @product.customers.restricted_inactive_list(current_user.id)
   end
 
   def new
